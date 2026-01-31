@@ -1,0 +1,33 @@
+{
+  "name": "x-downloader-scraper",
+  "version": "1.0.0",
+  "description": "downloader or scraper for X",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keito-Klein/x-downloader-scraper.git"
+  },
+  "keywords": [
+    "MiKako",
+    "twitter",
+    "tweeter",
+    "X",
+    "downloader",
+    "scraper"
+  ],
+  "author": "MiKako",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Keito-Klein/x-downloader-scraper/issues"
+  },
+  "homepage": "https://github.com/Keito-Klein/x-downloader-scraper#readme",
+  "dependencies": {
+    "axios": "^1.13.4",
+    "https-proxy-agent": "^7.0.6",
+    "socks-proxy-agent": "^8.0.5"
+  }
+}
