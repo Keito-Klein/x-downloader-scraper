@@ -1,6 +1,6 @@
 {
   "name": "x-downloader-scraper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "downloader or scraper for X",
   "main": "index.js",
   "type": "module",
