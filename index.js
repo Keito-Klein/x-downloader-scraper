@@ -1,4 +1,5 @@
 import axios from "axios";
+import fs from "fs";
 import { HttpsProxyAgent } from "https-proxy-agent";
 import { SocksProxyAgent } from "socks-proxy-agent";
 import { getGuestToken } from "./utils/guest.js"
@@ -47,7 +48,7 @@ const XD = async (url, config, proxy) => {
         };
 
         const headers = {
-            Authorization: config?.Authorization || (await getTwitterAuthorization()),
+            Authorization: config?.authorization || (await getTwitterAuthorization()),
             Cookie: config?.cookie || "",
             "x-guest-token": guest_token,
             "x-csrf-token": csrf_token ? csrf_token[1] : "",
@@ -120,7 +121,9 @@ const XD = async (url, config, proxy) => {
             profile_url: `https://x.com/${user.core.screen_name}`,
             avatar_url: user.legacy.default_profile_image ? "https://i.ibb.co/VWhgKY3/default.jpg" : user.avatar.image_url.replace("_normal", ""),
             banner_url: user.legacy.profile_banner_url || null,
-            can_dm: user.dm_permissions.can_dm,
+            can_dm: (user.dm_permissions && Object.keys(user.dm_permissions).length)
+                ? (user.dm_permissions.can_dm ?? "unknown")
+                : "unknown",
             statistics: {
                 followers: user.legacy.followers_count,
                 following: user.legacy.friends_count,
@@ -139,16 +142,18 @@ const XD = async (url, config, proxy) => {
 
         const final_response = {
             status: "success",
-            author,
-            statistics,
-            result: {
-                id: result.rest_id,
-                created_at: result.legacy.created_at,
-                description: result.legacy.full_text,
-                language: result.legacy.lang,
-                possibly_nsfw: result.legacy.possibly_sensitive || false,
-                media_count: media ? media.length : null,
-                media: media || null,
+            data: {
+                author,
+                statistics,
+                result: {
+                    id: result.rest_id,
+                    created_at: result.legacy.created_at,
+                    description: result.legacy.full_text,
+                    language: result.legacy.lang,
+                    possibly_nsfw: result.legacy.possibly_sensitive || false,
+                    media_count: media ? media.length : null,
+                    media: media || null,
+                }
             }
         }
 
