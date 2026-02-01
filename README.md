@@ -13,7 +13,7 @@
 </div>
 
 
-## How to use?  <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/coin.gif" width="30px">
+## How to use?  <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/coin.gif" width="25px">
 this code based on `./test/test.js`
 ```js
 import XD from 'x-downloader-scraper';
@@ -38,7 +38,7 @@ async function runTest() {
 runTest();
 ```
 
-## Result
+## Result   <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Earth.gif" width="25px">
 ### example results with all data
 
 ```js
@@ -121,7 +121,7 @@ media: [
       ]
 ```
 
-## Error
+## Error    <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/powerup.gif" width="25px">
 ```js
 { 
     status: "error",
